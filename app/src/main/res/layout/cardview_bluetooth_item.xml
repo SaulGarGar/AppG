@@ -32,12 +32,14 @@
                 android:layout_centerVertical="true">
 
             <TextView
+                    android:id="@+id/deviceName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
             <TextView
+                    android:id="@+id/macAdress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"/>
@@ -51,6 +53,7 @@
                 android:layout_alignParentEnd="true">
 
             <TextView
+                    android:id="@+id/deviceStrength"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

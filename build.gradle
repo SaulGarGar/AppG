@@ -22,6 +22,8 @@ allprojects {
     }
 }
 
+apply plugin: 'kotlin-kapt'
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
