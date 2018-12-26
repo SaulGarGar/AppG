@@ -96,10 +96,12 @@ class LocalDevicesActivity : AppCompatActivity(), BtDevicesPresenter.View {
                 enableBluetooth()
 
             }
-            else {
 
-            }
+        }
 
+        listFab.setOnClickListener{
+            val intent = Intent(this, RemoteDevicesActivity::class.java)
+            startActivity(intent)
         }
 
         refreshFab.setOnClickListener {
