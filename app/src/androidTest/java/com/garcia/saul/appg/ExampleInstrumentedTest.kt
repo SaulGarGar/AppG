@@ -9,7 +9,7 @@ import org.junit.runner.RunWith
 import org.junit.Assert.*
 
 /**
- * Instrumented test, which will execute on an Android BluetoothDevice.
+ * Instrumented test, which will execute on an Android MBluetoothDevice.
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
