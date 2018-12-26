@@ -6,7 +6,4 @@ class MBluetoothDevice(
     var address: String? = "",
     var strength: String? = "",
     var createdAt: String? = ""
-) {
-    constructor(name: String, address: String?, strength: String) : this()
-
-}
+)

@@ -1,9 +1,11 @@
 package com.garcia.saul.appg.view.adapter
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.model.MBluetoothDevice
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
@@ -23,10 +25,7 @@ class BluetoothDevicesAdapter(private val devices: ArrayList<MBluetoothDevice>, 
         return ViewHolder(view)
     }
 
-    class ViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
-        override fun onClick(v: View?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         fun bind(device: MBluetoothDevice,listener:RecyclerDeviceListener)= with(itemView){
 
