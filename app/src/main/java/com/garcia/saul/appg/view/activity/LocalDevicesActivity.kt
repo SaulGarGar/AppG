@@ -20,12 +20,12 @@ import android.util.Log
 import android.widget.Toast
 import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.model.MBluetoothDevice
-import com.garcia.saul.appg.presenter.BtDevicesPresenter
+import com.garcia.saul.appg.presenter.LocalDevicesPresenter
 import com.garcia.saul.appg.view.adapter.BluetoothDevicesAdapter
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
 import kotlinx.android.synthetic.main.activity_local_devices.*
 
-class LocalDevicesActivity : AppCompatActivity(), BtDevicesPresenter.View {
+class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
 
     private val ENABLE_BT_REQUEST_CODE = 1
     private val REQUEST_COARSE_LOCATION = 999
@@ -196,18 +196,6 @@ class LocalDevicesActivity : AppCompatActivity(), BtDevicesPresenter.View {
     }
 
     override fun onReceiveDevice() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun hideProgress() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

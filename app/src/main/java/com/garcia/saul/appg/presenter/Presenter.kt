@@ -8,8 +8,6 @@ open class Presenter<T :Presenter.View>{
     open fun initialize() {}
 
     interface View {
-        fun showError()
-        fun showProgress()
-        fun hideProgress()
+
     }
 }

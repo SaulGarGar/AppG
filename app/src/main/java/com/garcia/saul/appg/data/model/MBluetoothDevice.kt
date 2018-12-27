@@ -1,9 +1,11 @@
 package com.garcia.saul.appg.data.model
 
+import com.google.gson.annotations.SerializedName
+
 class MBluetoothDevice(
-    var id: String? = "",
-    var name: String? = "",
-    var address: String? = "",
-    var strength: String? = "",
-    var createdAt: String? = ""
+    @SerializedName("_id") var id: String? = "",
+    @SerializedName("name")var name: String? = "",
+    @SerializedName("address")var address: String? = "",
+    @SerializedName("strength")var strength: String? = "",
+    @SerializedName("created_at")var createdAt: String? = ""
 )

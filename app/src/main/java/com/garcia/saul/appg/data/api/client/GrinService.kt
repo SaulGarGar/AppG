@@ -1,4 +1,4 @@
-package com.garcia.saul.appg.data.api
+package com.garcia.saul.appg.data.api.client
 
 import com.garcia.saul.appg.BuildConfig
 import com.garcia.saul.appg.data.model.MBluetoothDevice
@@ -10,7 +10,7 @@ import retrofit2.http.POST
 interface GrinService {
 
     @GET(BuildConfig.ENDPOINT_DEVICES)
-    fun GetAllDevices():
+    fun getAllDevices():
             Observable<List<MBluetoothDevice>>
 
 
