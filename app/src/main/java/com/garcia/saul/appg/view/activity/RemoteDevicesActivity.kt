@@ -10,9 +10,8 @@ import com.garcia.saul.appg.data.api.client.GrinClient
 import com.garcia.saul.appg.data.model.MBluetoothDevice
 import com.garcia.saul.appg.interactor.RemoteDevicesInteractor
 import com.garcia.saul.appg.presenter.RemoteDevicesPresenter
-import com.garcia.saul.appg.view.adapter.BluetoothDevicesAdapter
+import com.garcia.saul.appg.view.adapter.RemoteDevicesAdapter
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
-import kotlinx.android.synthetic.main.activity_local_devices.*
 import kotlinx.android.synthetic.main.activity_remote_devices.*
 
 class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
@@ -21,7 +20,7 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
     private var grinClient: GrinClient = GrinClient()
 
     private lateinit var recycler: RecyclerView
-    private lateinit var adapter: BluetoothDevicesAdapter
+    private lateinit var adapter: RemoteDevicesAdapter
     private val layoutManager by lazy { LinearLayoutManager(this) }
 
 
@@ -47,13 +46,15 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
     }
 
     override fun onClickReorder() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        fabReorder.setOnClickListener{
+            adapter.sort()
+        }
     }
 
     override fun renderDevices(devices: ArrayList<MBluetoothDevice>) {
         recycler.setHasFixedSize(true)
         recycler.layoutManager = layoutManager
-        adapter = (BluetoothDevicesAdapter(devices, object: RecyclerDeviceListener{
+        adapter = (RemoteDevicesAdapter(devices, object: RecyclerDeviceListener{
             override fun onClick(mBluetoothDevice: MBluetoothDevice, position: Int) {}
 
         }))

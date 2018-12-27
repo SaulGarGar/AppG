@@ -21,7 +21,7 @@ import android.widget.Toast
 import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.model.MBluetoothDevice
 import com.garcia.saul.appg.presenter.LocalDevicesPresenter
-import com.garcia.saul.appg.view.adapter.BluetoothDevicesAdapter
+import com.garcia.saul.appg.view.adapter.LocalDevicesAdapter
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
 import kotlinx.android.synthetic.main.activity_local_devices.*
 
@@ -34,7 +34,7 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
     private var devicesList  = arrayListOf<MBluetoothDevice>()
 
     private lateinit var recycler : RecyclerView
-    private lateinit var adapter: BluetoothDevicesAdapter
+    private lateinit var adapter: LocalDevicesAdapter
     private val layoutManager by lazy { LinearLayoutManager(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -185,7 +185,7 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
         recycler.setHasFixedSize(true)
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.layoutManager = layoutManager
-        adapter = (BluetoothDevicesAdapter(devicesList, object: RecyclerDeviceListener{
+        adapter = (LocalDevicesAdapter(devicesList, object: RecyclerDeviceListener{
             override fun onClick(mBluetoothDevice: MBluetoothDevice, position: Int) {
                 Toast.makeText(this@LocalDevicesActivity, "Device ${mBluetoothDevice.name}",Toast.LENGTH_SHORT).show()
             }
