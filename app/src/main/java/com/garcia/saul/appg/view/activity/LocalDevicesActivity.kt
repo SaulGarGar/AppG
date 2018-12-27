@@ -22,9 +22,7 @@ import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.api.client.GrinClient
 import com.garcia.saul.appg.data.model.MBluetoothDevice
 import com.garcia.saul.appg.interactor.LocalDevicesInteractor
-import com.garcia.saul.appg.interactor.RemoteDevicesInteractor
 import com.garcia.saul.appg.presenter.LocalDevicesPresenter
-import com.garcia.saul.appg.presenter.RemoteDevicesPresenter
 import com.garcia.saul.appg.view.adapter.LocalDevicesAdapter
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
 import kotlinx.android.synthetic.main.activity_local_devices.*
@@ -206,8 +204,13 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
 
     }
 
-    override fun onPutDeviceSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onPutDeviceSuccess(device: MBluetoothDevice) {
+        Toast.makeText(this, "Éxito al subir ${device.name}",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPutDeviceError(error: Throwable) {
+        Toast.makeText(this, R.string.on_error,Toast.LENGTH_SHORT).show()
+        Log.e("onPutDevice", error.toString())
     }
 
 }

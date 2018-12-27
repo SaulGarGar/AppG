@@ -7,7 +7,5 @@ open class Presenter<T :Presenter.View>{
 
     open fun initialize() {}
 
-    interface View {
-
-    }
+    interface View
 }

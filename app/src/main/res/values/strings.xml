@@ -2,7 +2,7 @@
     <string name="app_name">AppG</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="on_search_devices">Buscando dispositivos</string>
-    <string name="on_error">Error</string>
+    <string name="on_error">Tarea no completada</string>
     <string name="bluetooth_activated">Bluetooth activado</string>
     <string name="bluetooth_disabled">Bluetooth desactivado</string>
     <string name="device_unknown">unknown</string>

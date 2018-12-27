@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.Toast
 import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.api.client.GrinClient
 import com.garcia.saul.appg.data.model.MBluetoothDevice
