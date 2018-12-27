@@ -33,7 +33,7 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
 
     private var devicesList  = arrayListOf<MBluetoothDevice>()
 
-    private lateinit var devicesRecycler : RecyclerView
+    private lateinit var recycler : RecyclerView
     private lateinit var adapter: BluetoothDevicesAdapter
     private val layoutManager by lazy { LinearLayoutManager(this) }
 
@@ -45,6 +45,7 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
         disableRefresh()
         verifyBluetooth()
         checkLocationPermission()
+        initUi()
 
     }
 
@@ -167,8 +168,6 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
         }
     }
 
-
-
     private fun proceedDiscovery() {
         val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
         filter.addAction(BluetoothDevice.ACTION_NAME_CHANGED)
@@ -176,18 +175,22 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
         bluetoothAdapter.startDiscovery()
     }
 
+    private fun initUi(){
+        recycler = localDevsRecyclerView as RecyclerView
+    }
+
     private fun setRecyclerView(){
 
-        devicesRecycler = recyclerView as RecyclerView
-        recyclerView.setHasFixedSize(true)
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.layoutManager = layoutManager
+
+        recycler.setHasFixedSize(true)
+        recycler.itemAnimator = DefaultItemAnimator()
+        recycler.layoutManager = layoutManager
         adapter = (BluetoothDevicesAdapter(devicesList, object: RecyclerDeviceListener{
             override fun onClick(mBluetoothDevice: MBluetoothDevice, position: Int) {
                 Toast.makeText(this@LocalDevicesActivity, "Device ${mBluetoothDevice.name}",Toast.LENGTH_SHORT).show()
             }
         }))
-        recyclerView.adapter = adapter
+        recycler.adapter = adapter
 
     }
 

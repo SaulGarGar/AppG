@@ -5,14 +5,26 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.RemoteDevicesActivity">
+        tools:context=".view.activity.RemoteDevicesActivity"
+        android:layout_margin="4dp">
 
     <android.support.v7.widget.RecyclerView
-            android:layout_width="395dp"
-            android:layout_height="587dp" android:layout_marginTop="8dp"
+            android:id="@+id/remoteDevsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="@+id/remoteDevsRecyclerView"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/remoteDevsRecyclerView"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+    />
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabReorder"

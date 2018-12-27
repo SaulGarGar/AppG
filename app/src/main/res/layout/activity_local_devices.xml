@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/recyclerView"/>
+            android:id="@+id/localDevsRecyclerView"/>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/listFab"
