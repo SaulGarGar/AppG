@@ -13,10 +13,8 @@ class RemoteDevicesPresenter(remoteDevicesInteractor: RemoteDevicesInteractor) :
 
     fun onSearchDevices() {
 
-        val disposable: Disposable= interactor.searchDevices()
+        val disposable: Disposable = interactor.searchDevices()
             .subscribe({getSuccess(it)},{getError(it)})
-
-
     }
 
     fun getSuccess(devices: List<MBluetoothDevice>){

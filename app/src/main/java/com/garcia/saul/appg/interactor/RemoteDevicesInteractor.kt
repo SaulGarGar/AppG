@@ -8,10 +8,6 @@ class RemoteDevicesInteractor(grinSer: GrinService) {
 
     private var grinService: GrinService = grinSer
 
-    fun RemoteDevicesInteractor(grinService: GrinService){
-        this.grinService = grinService
-    }
-
     fun searchDevices(): Observable<List<MBluetoothDevice>> {
         return grinService.getAllDevices()
     }

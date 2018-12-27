@@ -19,8 +19,12 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
 import com.garcia.saul.appg.R
+import com.garcia.saul.appg.data.api.client.GrinClient
 import com.garcia.saul.appg.data.model.MBluetoothDevice
+import com.garcia.saul.appg.interactor.LocalDevicesInteractor
+import com.garcia.saul.appg.interactor.RemoteDevicesInteractor
 import com.garcia.saul.appg.presenter.LocalDevicesPresenter
+import com.garcia.saul.appg.presenter.RemoteDevicesPresenter
 import com.garcia.saul.appg.view.adapter.LocalDevicesAdapter
 import com.garcia.saul.appg.view.listener.RecyclerDeviceListener
 import kotlinx.android.synthetic.main.activity_local_devices.*
@@ -37,10 +41,14 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
     private lateinit var adapter: LocalDevicesAdapter
     private val layoutManager by lazy { LinearLayoutManager(this) }
 
+    private lateinit var presenter: LocalDevicesPresenter
+    private var grinClient: GrinClient = GrinClient()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_local_devices)
 
+        initPresenter()
         listener()
         disableRefresh()
         verifyBluetooth()
@@ -49,6 +57,10 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
 
     }
 
+    fun initPresenter(){
+        presenter = LocalDevicesPresenter(LocalDevicesInteractor(grinClient))
+        presenter.view = this
+    }
 
     private fun verifyBluetooth() {
         if (bluetoothAdapter.isEnabled) {
@@ -187,18 +199,14 @@ class LocalDevicesActivity : AppCompatActivity(), LocalDevicesPresenter.View {
         recycler.layoutManager = layoutManager
         adapter = (LocalDevicesAdapter(devicesList, object: RecyclerDeviceListener{
             override fun onClick(mBluetoothDevice: MBluetoothDevice, position: Int) {
-                Toast.makeText(this@LocalDevicesActivity, "Device ${mBluetoothDevice.name}",Toast.LENGTH_SHORT).show()
+                presenter.onPutDevice(mBluetoothDevice)
             }
         }))
         recycler.adapter = adapter
 
     }
 
-    override fun renderDevices(devices: List<MBluetoothDevice>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onReceiveDevice() {
+    override fun onPutDeviceSuccess() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

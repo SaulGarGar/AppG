@@ -15,6 +15,8 @@ class GrinClient : RetrofitClient(), GrinService{
     }
 
     override fun putDevice(device: MBluetoothDevice): Observable<MBluetoothDevice> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return getGrinService().putDevice(device)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 }

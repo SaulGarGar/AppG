@@ -29,8 +29,6 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_remote_devices)
 
-        presenter = RemoteDevicesPresenter(RemoteDevicesInteractor(grinClient))
-
         initPresenter()
         initUi()
         showProgress()
@@ -39,6 +37,7 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
     }
 
     fun initPresenter(){
+        presenter = RemoteDevicesPresenter(RemoteDevicesInteractor(grinClient))
         presenter.view = this
         presenter.onSearchDevices()
     }
@@ -49,7 +48,6 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
 
     override fun onClickReorder() {
         fabReorder.setOnClickListener{
-            //adapter.sort()
             adapter.sort()
         }
     }
