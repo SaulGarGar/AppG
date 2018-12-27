@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Toast
 import com.garcia.saul.appg.R
 import com.garcia.saul.appg.data.api.client.GrinClient
 import com.garcia.saul.appg.data.model.MBluetoothDevice
@@ -33,6 +34,7 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
         initPresenter()
         initUi()
         showProgress()
+        onClickReorder()
 
     }
 
@@ -47,11 +49,12 @@ class RemoteDevicesActivity : AppCompatActivity(), RemoteDevicesPresenter.View {
 
     override fun onClickReorder() {
         fabReorder.setOnClickListener{
+            //adapter.sort()
             adapter.sort()
         }
     }
 
-    override fun renderDevices(devices: ArrayList<MBluetoothDevice>) {
+    override fun renderDevices(devices: List<MBluetoothDevice>) {
         recycler.setHasFixedSize(true)
         recycler.layoutManager = layoutManager
         adapter = (RemoteDevicesAdapter(devices, object: RecyclerDeviceListener{

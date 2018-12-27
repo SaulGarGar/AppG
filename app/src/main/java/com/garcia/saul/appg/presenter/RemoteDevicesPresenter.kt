@@ -21,11 +21,7 @@ class RemoteDevicesPresenter(remoteDevicesInteractor: RemoteDevicesInteractor) :
 
     fun getSuccess(devices: List<MBluetoothDevice>){
 
-        val devs: ArrayList<MBluetoothDevice> = ArrayList()
-
-        devs.addAll(devices)
-
-        view!!.renderDevices(devs)
+        view!!.renderDevices(devices)
 
     }
 
@@ -38,7 +34,7 @@ class RemoteDevicesPresenter(remoteDevicesInteractor: RemoteDevicesInteractor) :
 
         fun onClickReorder()
 
-        fun renderDevices(devices: ArrayList<MBluetoothDevice>)
+        fun renderDevices(devices: List<MBluetoothDevice>)
 
         fun showProgress()
 
